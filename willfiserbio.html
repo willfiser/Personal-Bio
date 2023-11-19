@@ -1,0 +1,284 @@
+<!---Log-in-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/web.css">
+    <title>Portfolio</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* font-family: 'Josefin Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    max-height: 100vh;
+}
+
+/*nav */
+header {
+    padding: 1.2rem 1.2rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: auto;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.logo a {
+    color: #244D61;
+    text-decoration: none;
+}
+
+nav a {
+    color: #244D61;
+    text-decoration: none;
+    font-size: .97rem;
+    font-weight: 600;
+    letter-spacing: .7px;
+    padding: 1rem;
+    padding: 0.4rem 1rem;
+}
+
+nav a.active,
+nav a:hover {
+    background-color: #244D61;
+    color: #fff;
+    border-radius: 1rem;
+    transition: all.3s ease-in-out;
+}
+
+#click {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+
+/* Nav */
+
+section {
+    margin: 2rem 8.5rem;
+    ;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Changed from space-between to center */
+    flex-wrap: wrap; /* Ensure items can wrap on smaller screens */
+    gap: 20px; /* Adds space between bio and image */
+}
+
+/* New CSS for .detail and .profile-image */
+.detail {
+    /* If needed, adjust width or flex basis here */
+    flex: 1; /* You can set this to a fixed width if preferred */
+    max-width: 600px; /* Maximum width of the bio section */
+}
+
+.profile-image {
+    /* If needed, adjust width or flex basis here */
+    flex-basis: calc(50% - 40px); /* Adjust the percentage and subtract value as needed */
+    margin-left: auto; /* Pushes the image container to the right */
+    margin-top: 2rem;
+    margin-right: -2rem;
+}
+
+.profile-image img {
+    width: 104%;
+    height: auto;
+    border-radius: 15px; /* Round the edges */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19); /* Shadow effect */
+}
+
+/* Media query adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: stretch; /* Stretch children to full width */
+    }
+
+    .detail, .profile-image {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+.main h1 {
+    font-size: 2.5 rem;
+    font-weight: 600;
+    margin-left: -2rem;
+}
+
+.detail h1 {
+    font-size: 3 rem; /* This is a new or updated value */
+    /* Other existing styles or new styles */
+}
+
+.detail h1 span {
+    /* Ensure this selector matches your structure. It may not be necessary if the <span> should be the same size as the h1 */
+    font-size: 3rem; /* This is a new or updated value */
+    /* Other existing styles or new styles */
+}
+
+.main p {
+    margin-top: 1.5rem;
+    font-size: .95rem;
+    margin-left: -2rem;
+}
+
+.detail p {
+    font-size: 1.15rem; /* This is a new or updated value */
+    font-style: italic; /* This will italicize the text */
+    color: #808080;
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    margin-top: 1.7rem
+}
+
+.social a {
+    color: #244D61;
+    font-size: 1rem;
+    border: 1.6px solid #244D61;
+    border-radius: 50%;
+    padding: .35rem;
+    text-align: center;
+    width: 26px;
+}
+
+.social a:hover {
+    color: #fff;
+    background-color: #244D61;
+    transition: all .3s ease-in-out;
+}
+
+.main h1 span:nth-child(1) {
+    font-size: 1.5rem;
+}
+
+.images {
+    background-image: url(/img/graph3.png);
+    background-repeat: no-repeat;
+    background-position: 0 -75px;
+}
+
+@media only screen and (max-width:480px) {
+    .menu {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #244D61;
+    }
+
+    header {
+        padding: 0.7rem 1rem;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    nav {
+        position: absolute;
+        display: grid;
+        top: 75px;
+        width: calc(100% - 40px);
+        text-align: center;
+        background-color: #fff;
+        left: -100%;
+    }
+
+    #click:checked~nav {
+        left: 0%;
+        transition: all 0.3s ease;
+    }
+
+    section {
+        margin: 1rem 1.5rem;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="/Users/willfiser/Desktop/Free Time Code/Personal Portfolio/Section-code/assets/OGS.jpg" alt="OGS Logo" style="height: 50px;">
+            </a>
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="mainicon">
+            <div class="menu">
+                <i class="bi bi-list"></i>
+            </div>
+        </label>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+
+    <section>
+        <div class="main">
+            <!-- Bio and Socials in one container -->
+            <div class="bio-socials">
+                <div class="detail">
+                    <h1><span>Hi, I'm</span> <br><span style="color:#244D61;">Will Fiser</span></h1>
+                    <p>I am a skilled data analyst with a strong background<br> 
+                        in advanced analytics for business and corporate<br>
+                        development at ONE Gas. I hold a degree in Energy<br>
+                        Management with a minor in Finance from the<br>
+                        University of Oklahoma and am currently pursuing<br>
+                        a Master's in Business Analytics and Data Science<br>
+                        at Oklahoma State University. </p>
+                    <p>I have a passion for leveraging data to drive business<br>
+                        decisions and bring a unique blend of energy sector<br>
+                        expertise and financial acumen to every analytical<br>
+                        endeavor.</p>
+                    <div class="social">
+                        <a href="http://linkedin.com/in/will-fiser-20227918b"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.instagram.com/slikwilly/"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.facebook.com/will.fiser.7"><i class="bi bi-facebook"></i></a>
+                        <a href="https://github.com/willfiser"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Image in its own container -->
+            <div class="profile-image">
+                <img src="/Users/willfiser/Desktop/Free Time Code/Personal Portfolio/Section-code/assets/Employee Headshot - Will Fiser.jpg" alt="Will Fiser">
+            </div>
+        </div>
+    </section>
+
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+</style>
+<!-- <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+  </style> -->
+
+</html>
