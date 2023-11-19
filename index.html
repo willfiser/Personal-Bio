@@ -111,10 +111,25 @@ section {
     .main {
         flex-direction: column;
         align-items: stretch; /* Stretch children to full width */
+        gap: 20px;
     }
 
     .detail, .profile-image {
         max-width: 100%; /* Full width on smaller screens */
+        flex-basis: auto;
+    }
+
+    .profile-image img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .detail h1 {
+        font-size: 2rem;
+    }
+
+    .detail p {
+        font-size: 1rem;
     }
 }
 
@@ -186,6 +201,24 @@ section {
         font-size: 1.5rem;
         font-weight: bold;
         color: #244D61;
+    }
+
+    .detail, .profile-image {
+        max-width: 100%; /* Full width on smaller screens */
+        flex-basis: auto;
+    }
+
+    .profile-image img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .detail h1 {
+        font-size: 2rem;
+    }
+
+    .detail p {
+        font-size: 1rem;
     }
 
     header {
