@@ -1,0 +1,556 @@
+<!---Log-in-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/web.css">
+    <title>Portfolio</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* font-family: 'Josefin Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    max-height: 100vh;
+}
+
+/*nav */
+header {
+    padding: 1.2rem 1.2rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: auto;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800
+}
+
+.logo a {
+    color: #244D61;
+    text-decoration: none;
+}
+
+nav a {
+    color: #244D61;
+    text-decoration: none;
+    font-size: .97rem;
+    font-weight: 600;
+    letter-spacing: .7px;
+    padding: 1rem;
+    padding: 0.4rem 1rem;
+}
+
+nav a.active,
+nav a:hover {
+    background-color: #244D61;
+    color: #fff;
+    border-radius: 1rem;
+    transition: all.3s ease-in-out;
+}
+
+#click {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+
+/* Nav */
+
+section {
+    margin: 2rem 8.5rem;
+    ;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Changed from space-between to center */
+    flex-wrap: wrap; /* Ensure items can wrap on smaller screens */
+    gap: 20px; /* Adds space between bio and image */
+}
+
+/* New CSS for .detail and .profile-image */
+.detail {
+    /* If needed, adjust width or flex basis here */
+    flex: 1; /* You can set this to a fixed width if preferred */
+    max-width: 600px; /* Maximum width of the bio section */
+}
+
+.profile-image {
+    /* If needed, adjust width or flex basis here */
+    flex-basis: calc(50% - 40px); /* Adjust the percentage and subtract value as needed */
+    margin-left: auto; /* Pushes the image container to the right */
+    margin-top: 2rem;
+    margin-right: -2rem;
+}
+
+.profile-image img {
+    width: 104%;
+    height: auto;
+    border-radius: 15px; /* Round the edges */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19); /* Shadow effect */
+}
+
+/* Media query adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: stretch; /* Stretch children to full width */
+        gap: 20px;
+    }
+
+    .detail {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 0 15px;
+        text-align: left;
+    }
+
+    .detail, .profile-image {
+        max-width: 100%; /* Full width on smaller screens */
+        flex-basis: auto;
+    }
+
+    .profile-image img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .detail h1 {
+        font-size: 2rem;
+        margin-left: 0;
+    }
+
+    .detail p {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+
+    .social {
+        justify-content: center; /* Center the icons horizontally */
+        margin: 0 auto; /* Center the social container */
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.main h1 {
+    font-size: 2.5 rem;
+    font-weight: 600;
+    margin-left: -2rem;
+}
+
+.detail h1 {
+    font-size: 3 rem; /* This is a new or updated value */
+    /* Other existing styles or new styles */
+}
+
+.detail h1 span {
+    /* Ensure this selector matches your structure. It may not be necessary if the <span> should be the same size as the h1 */
+    font-size: 3rem; /* This is a new or updated value */
+    /* Other existing styles or new styles */
+}
+
+.main p {
+    margin-top: 1.5rem;
+    font-size: .95rem;
+    margin-left: -2rem;
+}
+
+.detail p {
+    font-size: 1.15rem; /* This is a new or updated value */
+    font-style: italic; /* This will italicize the text */
+    color: #808080;
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    margin-top: 1.7rem
+}
+
+.social a {
+    color: #244D61;
+    font-size: 1rem;
+    border: 1.6px solid #244D61;
+    border-radius: 50%;
+    padding: .35rem;
+    text-align: center;
+    width: 26px;
+}
+
+.social a:hover {
+    color: #fff;
+    background-color: #244D61;
+    transition: all .3s ease-in-out;
+}
+
+.main h1 span:nth-child(1) {
+    font-size: 1.5rem;
+}
+
+.images {
+    background-image: url(/img/graph3.png);
+    background-repeat: no-repeat;
+    background-position: 0 -75px;
+}
+
+@media only screen and (max-width:480px) {
+    .menu {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #244D61;
+    }
+
+    .detail {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 0 15px;
+        text-align: left;
+    }
+
+    .detail, .profile-image {
+        max-width: 100%; /* Full width on smaller screens */
+        flex-basis: auto;
+    }
+
+    .profile-image img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .detail h1 {
+        font-size: 2rem;
+        margin-left: 0;
+    }
+
+    .detail p {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+
+    header {
+        padding: 0.7rem 1rem;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    nav {
+        position: absolute;
+        display: grid;
+        top: 75px;
+        width: calc(100% - 40px);
+        text-align: center;
+        background-color: #fff;
+        left: -100%;
+    }
+
+    #click:checked~nav {
+        left: 0%;
+        transition: all 0.3s ease;
+    }
+
+    section {
+        margin: 1rem 1.5rem;
+    }
+
+    .social {
+        justify-content: center; /* Center the icons horizontally */
+        margin: 0 auto; /* Center the social container */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
+
+.skills-container {
+    text-align: center;
+    margin: 45px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-item {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item img {
+    width: 50px; /* Adjust size as needed */
+    margin-bottom: 10px;
+}
+
+.skill-item h3 {
+    margin-bottom: 10px;
+}
+
+/* Add media query for responsive grid */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* 1 column for very small screens */
+    }
+}
+
+.key-tools-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: -50px; /* Adjust the spacing between lines and text */
+    padding: -50px 0;
+    font-size: 1rem;
+}
+
+.line {
+    flex: 1; /* Causes the lines to fill the flex container */
+    height: 2px; /* Thickness of the line */
+    background-color: #333; /* Color of the line */
+    margin: 0 50px; /* Spacing from the text */
+}
+
+.key-tools {
+    display: inline-block; /* Only as wide as the content */
+    font-size: 1rem; /* Adjust the font size as needed */
+    margin: 0; 
+    white-space: nowrap; /* Keeps the text in one line */
+    padding: 0 10px;
+}
+
+.skills-container h2 {
+    color: #244D61; /* Or use a specific navy blue shade like #000080 */
+}
+
+.skill-item h3 {
+    color: #244D61; /* Or use a specific navy blue shade like #000080 */
+}
+
+.portfolio-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This centers the rectangles vertically */
+    height: 85vh; /* 100% of the viewport height */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in height calculation */
+}
+
+.portfolio-rectangle {
+    width: 80%; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+    margin: 10px auto;
+    line-height: 150px; /* Vertically center the text */
+    text-align: center;
+    border: 1px solid #ddd; /* Border for the rectangle */
+    display: block; /* Ensures each rectangle is a block element */
+    overflow: hidden; /* Keeps the overlay within the rectangle */
+    text-decoration: none; /* Removes underline from links */
+    position: relative;
+    font-size: 1.3em; /* Increase the font size */
+    font-weight: bold; /* Make the font weight bold */
+    font-family: 'Poppins', sans-serif; /* Use Poppins or any modern font */
+    text-decoration: none; /* Remove underline */
+    background-color: rgba(0, 0, 0, 0.0); /* Slightly less dark tint */
+    background-blend-mode: darken; /* Ensures the tint darkens the background image */
+    color: white; /* Set text color to white */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+    transition: background-color 0.05s ease, opacity 0.2s ease; /* Smooth transition for background color */
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-rectangle:hover {
+    background-color: black; /* Change color on hover */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
+/* Applying unique background images */
+#rectangle1 {
+    background: url('assets/handshake.webp') no-repeat center center;
+    background-size: cover;
+}
+
+#rectangle2 {
+    background: url('assets/EV.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+#rectangle3 {
+    background: url('assets/analytics.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Dark tint overlay */
+.portfolio-rectangle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.0); /* Adjust the alpha value (0.5) for lighter/darker tint */
+}
+
+.portfolio-rectangle:hover::after {
+    content: attr(data-description); /* Sets the content to the data-description attribute of the div */
+    color: white; /* White text color */
+    font-size: 1em; /* Adjust the size as needed */
+    position: absolute; /* Positions the text over the rectangle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the text inside the rectangle */
+    width: 90%; /* Gives some padding inside the rectangle */
+    text-align: center;
+    transition: opacity 0.0s ease; /* Smooth transition for text opacity */
+    opacity: 0; /* Starts as transparent */
+}
+
+.portfolio-rectangle:hover::after {
+    opacity: 1; /* Fully opaque when hovered */
+}
+
+/* Ensure text and other content are above the overlay */
+.portfolio-rectangle > * {
+    position: relative;
+    z-index: 1;
+    text-decoration: none; /* Removes underline from links */
+}
+
+.portfolio-links > a {
+    color: white; /* Sets the font color to white */
+    font-size: 1.5em; /* Increases the font size */
+    font-weight: bold; /* Makes the font bold */
+    font-family: 'Arial', sans-serif; /* Example of a modern font */
+    text-decoration: none; /* Removes underline */
+}
+
+    /* Change the background to black on hover and set the description opacity to 1 */
+    .portfolio-rectangle:hover,
+    .portfolio-rectangle:hover::after {
+        background-color: black !important; /* Ensure background color overrides other styles */
+        opacity: 1; /* For the description to fade in */
+    }
+
+    /* Description text styles, including hidden state */
+    .portfolio-rectangle::after {
+        content: attr(data-description); /* Pulls in the description text */
+        color: white; /* Description text color */
+        font-size: 1em; /* Description text size */
+        position: absolute; /* Absolute position inside the rectangle */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Centering adjustment */
+        width: 90%; /* Width of the description, with some padding */
+        text-align: center; /* Center the text within the description box */
+        opacity: 0; /* Start with the description invisible */
+        transition: opacity 0.0s ease; /* Smooth transition for the description */
+        pointer-events: none; /* Ensures the description doesn't block click events on the rectangle */
+    }
+
+    /* Show the description text on hover */
+    .portfolio-rectangle:hover::after {
+        opacity: 1; /* Fade in the description text */
+    }
+
+    .portfolio-rectangle::after {
+        font-size: 0.4em; /* Smaller font size */
+        white-space: normal; /* Allow text to wrap */
+        word-wrap: break-word; /* Break the word to prevent overflow */
+        padding: 10px; /* Add some padding */
+    }
+
+    /* Specific CSS for data-description to ensure it takes precedence */
+    .portfolio-rectangle:hover::after {
+        font-size: 0.50em !important; /* Smaller font size with !important to ensure it overrides */
+        white-space: normal !important; /* Enable text wrapping */
+        word-wrap: break-word !important; /* Ensure long words wrap properly */
+    }
+    
+    /* Unbold the text in the data-description on hover */
+    .portfolio-rectangle:hover::after {
+        font-weight: normal !important; /* Set font weight to normal */
+    }
+
+    /* Adjust line spacing for the data-description text */
+    .portfolio-rectangle:hover::after {
+        line-height: 1.2em; /* Reduced line height for tighter text wrapping */
+    }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="assets/Logo.jpg" alt="WF Logo" style="height: 50px;">
+            </a>
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="mainicon">
+            <div class="menu">
+                <i class="bi bi-list"></i>
+            </div>
+        </label>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="skills.html">SKILLS</a>
+            <a href="portfolio.html" class="active">PORTFOLIO</a>
+            <a href="resume.html">RESUME </a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="portfolio-links">
+        <a href="https://github.com/willfiser/Return-To-Office" target="_blank">
+            <div class="portfolio-rectangle" id="rectangle1" data-description="Descriptive Statistics: The Return To Office project was an analysis of sentiment and prevalence of remote work versus telecommuting. The purpose for this project was to develop an understanding of worker sentiment regarding remote work and in-person work and to compare this against the respective productivity levels. The end goal of the study was to provide companies assistance in the decision making of talent acquisition and strategic work practices to maximize employee and company potential." >Return to Office</div>
+        </a>
+        <a href="https://github.com/willfiser/Electric-Vehicle-Transition" target="_blank">
+            <div class="portfolio-rectangle" id="rectangle2" data-description="Predictive Analytics: The Electric Vehicle Transition project was a study of sentiment and prevalence of electric vehicle adoption. On top of trend analysis regarding consumer sentiment and EV price and purchase activity, predictive algorithms were ran to provide an idea of the future of EV's, particularly around adoption rates, associated costs, and emissions. This study came with an array of benefits, most notably the information it can provide on future consumer interest, automaker commitments, and governmental policies." >Electric Vehicle Transition</div>
+        </a>
+        <a href="https://github.com/willfiser/Personal-Bio" target="_blank">
+            <div class="portfolio-rectangle" id="rectangle3" data-description="CSS and HTML: This project is what is responsible for the landing page that you have been exploring. It includes all code used to generate the personal portfolio site. The idea of the landing page was to act as a sophisticated and advanced resume that provides additional information that may not be readily available through LinkedIn. It also acted as a unique way to showcase some advanced coding capabilities, while also existing as a fun project to generate a visually appealing dashboard that highlights some key components of myself." >Portfolio Landing Page</div>
+        </a>
+    </div>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+</style>
+<!-- <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+  </style> -->
+
+</html>

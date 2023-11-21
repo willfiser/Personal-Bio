@@ -308,10 +308,173 @@ section {
 .content h1 {
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
- }
+}
 
 .content p {
     font-size: 1.5rem;
+}
+
+.contact-container {
+    position: absolute;
+    top: 150px; /* Adjust this value to overlap the image banner as desired */
+    left: 10;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10%; /* Add padding to avoid content touching the screen edges */
+    z-index: 2; /* Higher z-index to overlap the image banner */
+}
+
+.contact-form {
+    flex: 2; /* Adjusts the width of the form area */
+    margin-right: 20px; /* Adds some space between the form and the sidebar */
+}
+
+.contact-form h2, .contact-form label, .contact-form input, .contact-form textarea, .contact-form button {
+    display: block; /* Stack elements vertically */
+    width: 100%; /* Full width for form elements */
+    margin-bottom: 10px; /* Add space between form elements */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 10px; /* Makes the form fields taller */
+    border: 1px solid #ccc; /* Standard border color */
+}
+
+.contact-form input[type="submit"] {
+    background-color: #244D61; /* Replace with your brand color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.contact-info {
+    flex: 1; /* Adjusts the width of the sidebar area */
+    /* Add additional styles for your sidebar content */
+}
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-form, .contact-info {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.contact-form p {
+    /* Styles for the description text */
+    margin-bottom: 20px; /* Space between text and form */
+    /* Add any additional styling you want for the paragraph */
+}
+
+.contact-form p a {
+    color: #244D61; /* Or any color you prefer */
+    text-decoration: none; /* Removes the underline from links */
+}
+
+.contact-form p a:hover {
+    text-decoration: underline; /* Adds an underline on hover for better user interaction */
+}
+
+.image-banner {
+    position: relative;
+    background-image: url('assets/home_bg.jpeg'); /* Make sure the path is correct */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 175px; /* Or whatever height you prefer */
+    width: 100%;
+    z-index: 1; /* Lower z-index than contact-container */
+}
+
+.contact-content {
+    position: absolute;
+    top: -10px; /* Adjust this value as needed to overlap the image banner */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* This will vertically center the content within the contact-content */
+}
+
+.contact-form,
+.contact-info {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    width: 40%; /* Adjust width as needed */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Additional styling as needed */
+}
+
+/* Adjust for z-index stacking context */
+.header {
+    position: relative;
+    z-index: 10; /* Make sure this is higher than the z-index of .contact-content if set */
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        position: static; /* Reset the position for mobile view */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form,
+    .contact-info {
+        width: 90%; /* Full width on smaller screens */
+        margin-bottom: 20px;
+    }
+}
+
+.contact-info {
+    text-align: center; /* Center align the content */
+    /* Other styles remain the same */
+}
+
+.contact-info .contact-image {
+    max-width: 100px; /* Adjust size as needed */
+    border-radius: 50%; /* Circular image */
+    margin: 0 auto; /* Center the image */
+}
+
+.contact-info .bio {
+    margin-top: 40px; /* Space between image and bio */
+    /* Additional bio styles */
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    margin-top: 2.0rem
+}
+
+.social a {
+    color: #244D61;
+    font-size: 1rem;
+    border: 1.6px solid #244D61;
+    border-radius: 50%;
+    padding: .45rem;
+    text-align: center;
+    width: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social a:hover {
+    color: #244D61;
+    background-color: #244D61;
+    transition: all .3s ease-in-out;
 }
 
     </style>
@@ -331,26 +494,51 @@ section {
             </div>
         </label>
         <nav>
-            <a href="index.html"class="active">HOME</a>
+            <a href="index.html">HOME</a>
             <a href="about.html" >ABOUT</a>
             <a href="skills.html">SKILLS</a>
             <a href="portfolio.html">PORTFOLIO</a>
             <a href="resume.html">RESUME </a>
-            <a href="contact.html">CONTACT</a>
+            <a href="contact.html"class="active">CONTACT</a>
         </nav>
     </header>
 
-    <div class="bg-image">
-        <div class="content">
-            <h1>Will Fiser</h1>
-            <p>Data Analytics. Machine Learning. Python. R-Studio. Energy. Finance. Corporate Development. Jokes.</p>
+    <div class="image-banner">
+        <!-- The image will be set via CSS as a background -->
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2>Thanks for Stopping By!</h2>
+            <p>Feel free to contact me <a href="mailto:wffiser@gmail.com">wffiser@gmail.com</a> or use the form below. I am also available at my linked socials if that is easier. Thanks!</p>
+            <form action="your-server-side-script" method="post">
+                <label for="name">Name: *</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email Address: *</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="subject">Subject: *</label>
+                <input type="text" id="subject" name="subject" required>
+    
+                <label for="message">Message: *</label>
+                <textarea id="message" name="message" required></textarea>
+    
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="contact-info">
+            <img src="assets/Employee Headshot - Will Fiser.jpg" alt="Your Name" class="contact-image"/>
+            <p class="bio">Will Fiser is a qualified data analyst with a strong background in advanced analytics and is comprised of a multitude of valuable skillsets. Along with his educational history in Energy Management and Business Analytics & Data Science, Will enjoys leveraging big data to drive business decisions and support intelligent strategic choices.</p>
             <div class="social">
                 <a href="http://linkedin.com/in/will-fiser-20227918b"><i class="bi bi-linkedin"></i></a>
                 <a href="https://www.instagram.com/slikwilly/"><i class="bi bi-instagram"></i></a>
                 <a href="https://www.facebook.com/will.fiser.7"><i class="bi bi-facebook"></i></a>
                 <a href="https://github.com/willfiser"><i class="bi bi-github"></i></a>
             </div>
+            </div>
         </div>
+    </div>
 </body>
 
 <style>
