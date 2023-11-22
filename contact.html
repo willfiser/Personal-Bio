@@ -33,6 +33,16 @@ header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.last-update {
+    position: absolute;
+    top: 73px; /* Adjust this value to position the text right below the logo image */
+    left: 27px; /* Align with the left edge of the logo or as needed */
+    font-size: 0.7em; /* Adjust the font size as needed */
+    color: #666; /* Adjust the color as needed */
+    font-style: italic;
+    z-index: 2; /* Ensures the text is above the header background but below the main content */
+}
+
 .logo {
     font-size: 1.3rem;
     font-weight: 800
@@ -472,7 +482,7 @@ section {
 }
 
 .social a:hover {
-    color: #244D61;
+    color: #fff;
     background-color: #244D61;
     transition: all .3s ease-in-out;
 }
@@ -487,6 +497,11 @@ section {
                 <img src="assets/Logo.jpg" alt="WF Logo" style="height: 50px;">
             </a>
         </div>
+
+        <div class="last-update">
+            Last Update: Nov. 2023
+        </div>
+
         <input type="checkbox" id="click">
         <label for="click" class="mainicon">
             <div class="menu">
